@@ -1,0 +1,40 @@
+# See http://middlemanapp.com/advanced/local-data/
+# All data is accessible via the data.nutzer mixin.
+- name: Mathias Dalheimer
+  L1: foo
+  L2: bar
+  L3: baz
+  imagefile: md-150x150.png
+  page: md
+- name: Dummy Nerd
+  L1: foo
+  L2: bar
+  L3: baz
+  imagefile: md-150x150.png
+  page: dummy.html
+- name: Dummy Nerd
+  L1: foo
+  L2: bar
+  L3: baz
+  imagefile: md-150x150.png
+  page: dummy.html
+- name: Dummy Nerd
+  L1: foo
+  L2: bar
+  L3: baz
+  imagefile: md-150x150.png
+  page: dummy.html
+- name: Dummy Nerd
+  L1: foo
+  L2: bar
+  L3: baz
+  imagefile: md-150x150.png
+  page: dummy.html
+- name: Dummy Nerd
+  L1: foo
+  L2: bar
+  L3: baz
+  imagefile: md-150x150.png
+  page: dummy.html
+
+
