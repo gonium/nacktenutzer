@@ -1,7 +1,0 @@
-name: Nackte Stromnutzer
-markdown: redcarpet
-pygments: true
-timezone: Europe/Berlin
-# Prefix blog entries with /blog
-permalink: /blog/:year/:month/:day/:title
-exclude: ['deploy.yml', 'deploy.yml_template']

@@ -1,8 +1,0 @@
-# See http://jekyllrb.com/docs/datafiles/
-# All data is accessible via the site.data.nutzer mixin.
-- name: Mathias Dalheimer
-  L1: foo
-  L2: bar
-  L3: baz
-  imagefile: img/md-100x100.jpg
-  profil: md.html
