@@ -21,6 +21,7 @@ textarea {
 body {
     font-size: 1em;
     line-height: 1.4;
+    padding-top: 50px;
 }
 
 /*
@@ -93,19 +94,11 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+.footer {
+    font-size: 0.8em;
+    line-height: 1;
+    padding-top: 40px;
+}
 
 
 
