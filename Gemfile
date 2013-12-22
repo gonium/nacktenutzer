@@ -9,3 +9,6 @@ gem "middleman-livereload", "~> 3.1.0"
 gem 'uglifier'
 gem 'sass'
 
+# for downloading readings from mysmartgrid.de
+gem 'flukso4r'
+
