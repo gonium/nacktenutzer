@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 ruby '2.0.0'
 
@@ -10,5 +10,5 @@ gem 'uglifier'
 gem 'sass'
 
 # for downloading readings from mysmartgrid.de
-gem 'flukso4r'
+gem 'httparty'
 

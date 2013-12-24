@@ -8,3 +8,26 @@ fuuu!
 
 <%= lorem.paragraph %>
 
+
+
+<div id="graphdiv" style="width:400px; height:200px;"></div>
+
+<script type="text/javascript" src="/js/vendor/dygraph-combined.js"></script>
+<script type="text/javascript">
+  g = new Dygraph(
+
+      // containing div
+      document.getElementById("graphdiv"),
+              [
+                [1,10,100],
+                [2,20,80],
+                [3,50,60],
+                [4,70,80]
+              ],
+              {
+                labels: [ "x", "A", "B" ]
+              }
+
+  );
+</script>
+

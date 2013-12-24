@@ -13,7 +13,12 @@ cleanest) way of getting everything is using RVM and bundler:
 
 This step can take some time. Afterwards, you should be able to build and serve the site locally using
 
-    $ jekyll serve --watch
+    $ middleman server
 
 The site will then be rendered. You can access it on
-[````http://localhost:4000````](http://localhost:4000).
+[````http://localhost:4567````](http://localhost:4567).
+
+Notes
+-----
+
+See http://middlemanapp.com/advanced/custom/
