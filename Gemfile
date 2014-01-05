@@ -10,6 +10,7 @@ gem 'uglifier'
 gem 'sass'
 gem 'therubyracer'
 gem 'less'
+#gem 'sprockets-less'
 
 # for downloading readings from mysmartgrid.de
 gem 'httparty'

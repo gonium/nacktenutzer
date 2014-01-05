@@ -1,4 +1,4 @@
-require 'less'
+require "sprockets"
 
 ###
 # Compass
@@ -44,6 +44,7 @@ activate :livereload
 activate :directory_indexes
 
 activate :sprockets
+ignore 'css/vendor'
 
 # Methods defined in the helpers block are available in templates
 # helpers do
