@@ -43,8 +43,7 @@ activate :livereload
 # Pretty urls (no html at the end of an url)
 activate :directory_indexes
 
-activate :sprockets
-ignore 'css/vendor'
+#ignore 'css/vendor'
 
 # Methods defined in the helpers block are available in templates
 # helpers do
@@ -75,6 +74,8 @@ configure :build do
 
   # Minify Javascript on build
   activate :minify_javascript
+
+  activate :sprockets
 
   # Enable cache buster
   activate :asset_hash

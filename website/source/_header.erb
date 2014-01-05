@@ -11,11 +11,15 @@
   <meta name="description" content="">
   <meta name="author" content="Mathias Dalheimer">
 
-  <!-- Load The Story -->
-  <link id="the-story-css-file" href="/css/the-story.min.css" rel="stylesheet" media="screen">
+  <%= stylesheet_link_tag "main", :media => "screen" %>
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/img/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x144-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png" />
+  <link rel="shortcut icon" href="favicon.png" />
+  <link rel="icon" type="image/ico" href="favicon.ico" />
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -25,9 +29,9 @@
   <meta http-equiv=X-UA-Compatible content=IE=edge>    
 </head>
 
-<!-- activate scrollspy -->
+  <!-- activate scrollspy -->
 
-<body id="top" data-spy="scroll" data-target=".navbar" data-offset="50">
+  <body id="top" data-spy="scroll" data-target=".navbar" data-offset="50">
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="navbar-container">
       <div class="navbar-header">
