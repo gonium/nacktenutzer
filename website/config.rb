@@ -1,3 +1,5 @@
+require 'less'
+
 ###
 # Compass
 ###
@@ -40,6 +42,8 @@ activate :livereload
 
 # Pretty urls (no html at the end of an url)
 activate :directory_indexes
+
+activate :sprockets
 
 # Methods defined in the helpers block are available in templates
 # helpers do
