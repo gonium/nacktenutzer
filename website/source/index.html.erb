@@ -56,7 +56,7 @@ title: Nackte Nutzer - Startseite
         <% data.nutzer.each do |nutzer| %>
         <li>
           <p><%= image_tag nutzer.imagefile, :width => '150', :height => '150', :class => 'center', :alt => nutzer.name %></p>
-          <p><a class="btn btn-default" href="<%= "/nutzer/#{nutzer.page}" %>" role="button">Ausspionieren &raquo;</a></p>
+          <p><a class="btn btn-default" href="<%= "/nutzer/#{nutzer.page}" %>" role="button">Beobachten &raquo;</a></p>
           </li>
         <% end %>
       </ul>

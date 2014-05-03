@@ -1,40 +1,40 @@
 # See http://middlemanapp.com/advanced/local-data/
 # All data is accessible via the data.nutzer mixin.
-- name: Mathias Dalheimer
+- name: Friedrich Nord
   L1: foo
   L2: bar
   L3: baz
-  imagefile: md-150x150.png
+  imagefile: uifaces-koridhandy-128x128.jpg
   page: md
 - name: Dummy Nerd
   L1: foo
   L2: bar
   L3: baz
-  imagefile: md-150x150.png
+  imagefile: uifaces-kolage-128x128.jpg
   page: dummy.html
 - name: Dummy Nerd
   L1: foo
   L2: bar
   L3: baz
-  imagefile: md-150x150.png
+  imagefile: uifaces-teclaro-128x128.jpg
   page: dummy.html
 - name: Dummy Nerd
   L1: foo
   L2: bar
   L3: baz
-  imagefile: md-150x150.png
+  imagefile: uifaces-walterstephanie-128x128.jpg
   page: dummy.html
 - name: Dummy Nerd
   L1: foo
   L2: bar
   L3: baz
-  imagefile: md-150x150.png
+  imagefile: uifaces-adina-128x128.jpg
   page: dummy.html
 - name: Dummy Nerd
   L1: foo
   L2: bar
   L3: baz
-  imagefile: md-150x150.png
+  imagefile: uifaces-idiot-128x128.jpg
   page: dummy.html
 
 
