@@ -18,7 +18,8 @@ and serve the site locally using
 
     $ middleman server
 
-The site will then be rendered. You can access it on
+from within the "website" directory. The site will then be rendered. 
+You can access it on
 [````http://localhost:4567````](http://localhost:4567).
 
 Notes
