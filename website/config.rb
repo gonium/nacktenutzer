@@ -45,12 +45,8 @@ activate :directory_indexes
 
 #ignore 'css/vendor'
 
-# Methods defined in the helpers block are available in templates
-# helpers do
-#   def some_helper
-#     "Helping"
-#   end
-# end
+require "lib/msg-helpers.rb"
+helpers MSGHelpers
 
 # create pages as foo.html.markdown.erb, then middleman uses first erb,
 # then markdown to create the page.

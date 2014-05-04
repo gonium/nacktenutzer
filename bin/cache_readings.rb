@@ -24,12 +24,21 @@ last_hour = MySmartGrid.get(
 
 last_hour_data = JSON.parse(last_hour.body)
 
+timestamps = [];
+values = [];
+
 last_hour_data.each{ |timestamp, value|
-  puts "#{timestamp}: #{value}"
+  if not value =~ /nan$/
+    timestamps << timestamp
+    values << value.to_i
+  end
 }
 
-File.open(
-  File.join(File.dirname(__FILE__), '..', "website", "source", "nutzer", "#{sensor_id}.json"), 'w') { |file|
-  file.write last_hour.body
-}
+puts timestamps
 
+
+#File.open(
+#  File.join(File.dirname(__FILE__), '..', "website", "source", "nutzer", "#{sensor_id}.json"), 'w') { |file|
+#  file.write last_hour.body
+#}
+#
