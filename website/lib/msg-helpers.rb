@@ -3,36 +3,53 @@ require 'json'
 require 'pp'
 
 module MSGHelpers
+
+  # Wraps HTTParty for mySmartGrid access - i.e. certificate etc.
   class MySmartGrid
     include HTTParty
     base_uri 'https://api.mysmartgrid.de:8443'
     ssl_ca_file File.join(File.dirname(__FILE__), '..', '..', 'etc', 'msg_CA.crt')
   end
 
-  def get_last_hour_data
-    sensor_id = '5715a57b0c8ec958727ab3bb206d8b6e'
-    access_token = 'd3a16238d92456bb0f6727743275dce0'
-
-    last_hour = MySmartGrid.get(
-      "/sensor/5715a57b0c8ec958727ab3bb206d8b6e?interval=hour&unit=watt",
+  # Uses the MySmartGrid API to retrieve values from the given sensor
+  def get_interval_data(sensor_id, access_token, interval)
+    data= MySmartGrid.get(
+      "/sensor/#{sensor_id}?interval=#{interval}&resolution=minute&unit=watt",
       :headers => { "X-Version" => "1.0", 
-                    "X-Token" => "d3a16238d92456bb0f6727743275dce0",
+                    "X-Token" => access_token,
                     "Accept" => "application/json"
       });
-    return JSON.parse(last_hour.body)
+    return JSON.parse(data.body)
   end
 
-  def get_last_hour_rickshaw
-    last_hour_data = get_last_hour_data
+  # Adjust data format so that the rickshaw library can use it.
+  def mk_rickshaw_format_localtime(data)
     json = "["
-    last_hour_data.each{ |timestamp, value|
+    data.each{ |timestamp, value|
       if not value =~ /nan$/
-        json += "{x:#{timestamp}, y:#{value.to_i}},"
+        json += "{x:#{timestamp.to_i + (60*60*2)}, y:#{value.to_i}},"
       end
     }
     json += "]"
     return json
   end
 
+  # Call this to get rickshaw-formatted data for a given sensor
+  def get_last_hour(sensor_id, access_token)
+    last_hour_data = get_interval_data(sensor_id, access_token, "hour")
+    return mk_rickshaw_format_localtime(last_hour_data)
+  end
+
+  # Call this to get rickshaw-formatted data for a given sensor
+  def get_last_day(sensor_id, access_token)
+    data = get_interval_data(sensor_id, access_token, "day")
+    return mk_rickshaw_format_localtime(data)
+  end
+
+  # Call this to get rickshaw-formatted data for a given sensor
+  def get_last_week(sensor_id, access_token)
+    data = get_interval_data(sensor_id, access_token, "week")
+    return mk_rickshaw_format_localtime(data)
+  end
 
 end

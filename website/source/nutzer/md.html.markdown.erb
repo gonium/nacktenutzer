@@ -1,23 +1,48 @@
 ---
 title: Nackte Nutzer - Mathias Dalheimer
+l1_sensor_id: '5715a57b0c8ec958727ab3bb206d8b6e'
+l1_access_token: 'd3a16238d92456bb0f6727743275dce0'
+l2_sensor_id: '5715a57b0c8ec958727ab3bb206d8b6e'
+l2_access_token: 'd3a16238d92456bb0f6727743275dce0'
+l3_sensor_id: '5715a57b0c8ec958727ab3bb206d8b6e'
+l3_access_token: 'd3a16238d92456bb0f6727743275dce0'
+
 ---
 
   <div id="Steckbrief" class="page color-4">
     <div class="inner-page">
       <h2 class="page-headline">Friedrich Nord</h2>
+      <p class="page-headline"><%= image_tag "uifaces-koridhandy-128x128.jpg", :width => '128', :height => '128', :class => 'center', :alt => "Friedrich Nord" %></p>
     </div>
     <div class="row inner-page">
       <div class="col-md-8 col-md-offset-2">
         <p><%= lorem.paragraph %></p>
-        <p>
-          <div id="chart_container">
-            <div id="y_axis"></div>
-            <div id="chart"></div>
-          </div>
-        </p>
-        <p><%= lorem.paragraph %></p>
+      </div>
+    </div>
+    <div class="row inner-page">
+      <div class="col-md-8 col-md-offset-2">
+        <div id="chart_container">
+          <h3 id="chart_title">Stromverbrauch des letzten Tages</h3>
+          <div id="y_axis"></div>
+          <div id="hour_chart"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row inner-page">
+      <div class="col-md-8 col-md-offset-2">
         <p><%= lorem.paragraph %></p>
       </div>
+    </div>
+  </div>
+  <div class="row inner-page">
+    <div class="col-md-8 col-md-offset-2">
+      <p>
+      <div id="chart_container">
+        <h3 id="chart_title">Stromverbrauch des letzten Tages</h3>
+        <div id="y_axis"></div>
+        <div id="day_chart"></div>
+      </div>
+      </p>
     </div>
   </div>
 
@@ -25,13 +50,15 @@ title: Nackte Nutzer - Mathias Dalheimer
 <style>
 #chart_container {
         position: relative;
-        top: 30px;
-        bottom: 30px;
         font-family: Arial, Helvetica, sans-serif;
 }
-#chart {
+#hour_chart {
         position: relative;
         left: 40px;
+}
+#chart_title {
+        position: absolute;
+        top: -80px;
 }
 #y_axis {
         position: absolute;
@@ -44,38 +71,59 @@ title: Nackte Nutzer - Mathias Dalheimer
 
 <script>
 window.onload = function() {
+  var palette = new Rickshaw.Color.Palette();
 
-  var data = <%= get_last_hour_rickshaw %>
+  var l1_hour_data = <%= get_last_day(
+                        current_page.data["l1_sensor_id"], 
+                        current_page.data["l1_access_token"]) %>
+  var l2_hour_data = <%= get_last_day(
+                        current_page.data["l2_sensor_id"], 
+                        current_page.data["l2_access_token"]) %>
+  var l3_hour_data = <%= get_last_day(
+                        current_page.data["l3_sensor_id"], 
+                        current_page.data["l3_access_token"]) %>
 
-  var graph = new Rickshaw.Graph( {
-          element: document.querySelector("#chart"),
+  var hour_graph = new Rickshaw.Graph( {
+          element: document.querySelector("#hour_chart"),
           width: 580,
           height: 350,
-          series: [ {
-                  color: 'steelblue',
-                  data: data,
+          series: [ 
+              {
+                  color: palette.color(),
+                  data: l1_hour_data,
                   name: 'Watt'
-          } ]
+              },
+              {
+                  color: palette.color(),
+                  data: l2_hour_data,
+                  name: 'Watt'
+              },
+              {
+                  color: palette.color(),
+                  data: l3_hour_data,
+                  name: 'Watt'
+              }
+          ]
   } );
 
-  var axes = new Rickshaw.Graph.Axis.Time( { graph: graph } );
+  var axes = new Rickshaw.Graph.Axis.Time( { 
+      graph: hour_graph,
+    } );
 
   var hoverDetail = new Rickshaw.Graph.HoverDetail( {
-      graph: graph,
+      graph: hour_graph,
       xFormatter: function(x) { return "" },
       yFormatter: function(y) { return Math.round(y) }
   } );
 
   var y_axis = new Rickshaw.Graph.Axis.Y( {
-          graph: graph,
+          graph: hour_graph,
           orientation: 'left',
-          tickFormat: Rickshaw.Fixtures.Number.formatKMBT,
-          element: document.getElementById('y_axis'),
+          //tickFormat: Rickshaw.Fixtures.Number.formatKMBT,
+          element: document.getElementById('y_axis')
   } );
-    
 
-
-  graph.render();
+  hour_graph.render();
 };
 </script>
 
