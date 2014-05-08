@@ -47,6 +47,8 @@ activate :directory_indexes
 
 require "lib/msg-helpers.rb"
 helpers MSGHelpers
+require "lib/nutzer-helpers.rb"
+helpers NutzerHelpers
 
 # create pages as foo.html.markdown.erb, then middleman uses first erb,
 # then markdown to create the page.

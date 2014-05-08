@@ -7,7 +7,8 @@ Getting started
 The site is generated using [Middleman](www.middlemanapp.com). The easiest (and
 cleanest) way of getting everything is using RVM and bundler:
 
-    $ rvm use 2.0.0@nacktenutzer --create
+    // install RVM first
+    $ rvm use 2.1.0@nacktenutzer --create
     $ gem install bundler
     $ bundle install
 
@@ -21,6 +22,17 @@ and serve the site locally using
 from within the "website" directory. The site will then be rendered. 
 You can access it on
 [````http://localhost:4567````](http://localhost:4567).
+
+Deployment
+----------
+
+For deployment, you can build the website using 
+
+    $ middleman build
+
+This will create a "website/build" directory that contains all files. It
+can be copied into an adequate web root directory and served by a
+webserver. 
 
 Notes
 -----

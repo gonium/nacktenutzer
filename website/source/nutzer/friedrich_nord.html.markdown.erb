@@ -1,18 +1,11 @@
 ---
-title: Nackte Nutzer - Mathias Dalheimer
-l1_sensor_id: '5715a57b0c8ec958727ab3bb206d8b6e'
-l1_access_token: 'd3a16238d92456bb0f6727743275dce0'
-l2_sensor_id: '5715a57b0c8ec958727ab3bb206d8b6e'
-l2_access_token: 'd3a16238d92456bb0f6727743275dce0'
-l3_sensor_id: '5715a57b0c8ec958727ab3bb206d8b6e'
-l3_access_token: 'd3a16238d92456bb0f6727743275dce0'
-
+title: Nackte Nutzer - Friedrich Nord
+nutzer_page: "friedrich_nord"
 ---
-
   <div id="Steckbrief" class="page color-4">
     <div class="inner-page">
       <h2 class="page-headline">Friedrich Nord</h2>
-      <p class="page-headline"><%= image_tag "uifaces-koridhandy-128x128.jpg", :width => '128', :height => '128', :class => 'center', :alt => "Friedrich Nord" %></p>
+      <p><%= image_tag get_nutzer_data(current_page.data.nutzer_page)["imagefile"], :class => 'center', :alt => get_nutzer_data(current_page.data.nutzer_page)["name"] %></p>
     </div>
     <div class="row inner-page">
       <div class="col-md-8 col-md-offset-2">
@@ -38,14 +31,19 @@ l3_access_token: 'd3a16238d92456bb0f6727743275dce0'
     <div class="col-md-8 col-md-offset-2">
       <p>
       <div id="chart_container">
-        <h3 id="chart_title">Stromverbrauch des letzten Tages</h3>
+        <h3 id="chart_title">Stromverbrauch der letzten Woche</h3>
         <div id="y_axis"></div>
         <div id="day_chart"></div>
       </div>
       </p>
     </div>
   </div>
-
+  <div class="row inner-page">
+    <div class="col-md-8 col-md-offset-2">
+      <h3>Debugging</h3>
+      <p><%= get_nutzer_data(current_page.data.nutzer_page) %></p>
+    </div>
+  </div>
 
 <style>
 #chart_container {
@@ -74,14 +72,14 @@ window.onload = function() {
   var palette = new Rickshaw.Color.Palette();
 
   var l1_hour_data = <%= get_last_day(
-                        current_page.data["l1_sensor_id"], 
-                        current_page.data["l1_access_token"]) %>
+                        get_nutzer_data(current_page.data.nutzer_page)["l1_sensor_id"], 
+                        get_nutzer_data(current_page.data.nutzer_page)["l1_access_token"]) %>
   var l2_hour_data = <%= get_last_day(
-                        current_page.data["l2_sensor_id"], 
-                        current_page.data["l2_access_token"]) %>
+                        get_nutzer_data(current_page.data.nutzer_page)["l2_sensor_id"], 
+                        get_nutzer_data(current_page.data.nutzer_page)["l2_access_token"]) %>
   var l3_hour_data = <%= get_last_day(
-                        current_page.data["l3_sensor_id"], 
-                        current_page.data["l3_access_token"]) %>
+                        get_nutzer_data(current_page.data.nutzer_page)["l3_sensor_id"], 
+                        get_nutzer_data(current_page.data.nutzer_page)["l3_access_token"]) %>
 
   var hour_graph = new Rickshaw.Graph( {
           element: document.querySelector("#hour_chart"),
