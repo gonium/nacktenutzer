@@ -34,6 +34,13 @@ This will create a "website/build" directory that contains all files. It
 can be copied into an adequate web root directory and served by a
 webserver. 
 
+The whole thing is also automated in the provided Rakefile. You can run
+
+    $ rake gen_deploy
+
+to (re-)generate the whole site and copy it over to ````~/html````. A webserver 
+can serve this directory in a production setting.
+
 Notes
 -----
 

@@ -10,6 +10,7 @@ gem 'uglifier'
 gem 'sass'
 gem 'therubyracer'
 gem 'less'
+gem 'oj' # faster JS compiles
 #gem 'sprockets-less'
 
 # for downloading readings from mysmartgrid.de
