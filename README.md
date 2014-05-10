@@ -41,7 +41,10 @@ The whole thing is also automated in the provided Rakefile. You can run
 to (re-)generate the whole site and copy it over to ````~/html````. A webserver 
 can serve this directory in a production setting.
 
-Notes
------
+On FreeBSD 10, you need to install GCC in order to be able to install
+the libv8 gem. I did approximately this:
 
-See http://middlemanapp.com/advanced/custom/
+    $ pkg install gmake gcc
+    $ export CXX=/usr/local/bin/g++47 
+    $ export LD_FLAGS=-Wl,-rpath=/usr/local/lib/gcc47
+    $ bundle install
